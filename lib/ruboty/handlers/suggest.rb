@@ -3,8 +3,9 @@ module Ruboty
     class Suggest < Base
       on(
         //,
-        missing: true,
         description: "",
+        hidden: true,
+        missing: true,
         name: "suggest"
       )
 
