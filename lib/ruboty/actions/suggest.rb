@@ -9,14 +9,14 @@ module Ruboty
 
       def suggestion_message
         <<~STRING
-          Could not find command '#{command}'.
+          Could not find command `#{command}`.
           Maybe you meant #{maybe_you_meant}.
           Run `@#{message.robot.name} help` for more commands.
         STRING
       end
 
       def maybe_you_meant
-        sort_by_similarity[0..1].map{ |s| s[:name]}.join(" or ")
+        sort_by_similarity[0..1].map { |s| s[:command] }.join(" or ")
       end
 
       def sort_by_similarity
@@ -24,13 +24,14 @@ module Ruboty
       end
 
       def command
-        message.body.gsub(Action.prefix_pattern(message.robot.name), "")
+        @command ||=
+          message.body.gsub(Action.prefix_pattern(message.robot.name), "")
       end
 
       def suggestions
         Ruboty.actions.inject([]) do |result, action|
           result << {
-            name: action.name,
+            command: action.name,
             similarity: similarity(action.name)
           }
         end
