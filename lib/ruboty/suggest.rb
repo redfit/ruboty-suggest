@@ -1,7 +1,4 @@
+require "ruboty/actions/suggest"
+require "ruboty/handlers/suggest"
 require "ruboty/suggest/version"
 
-module Ruboty
-  module Suggest
-    # Your code goes here...
-  end
-end
