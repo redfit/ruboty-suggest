@@ -20,7 +20,7 @@ describe Ruboty::Handlers::Suggest do
 
     let(:replied) do
       <<~STRING
-          Could not find command 'kong'.
+          Could not find command `kong`.
           Maybe you meant ping or whoami.
           Run `@ruboty help` for more commands.
       STRING
