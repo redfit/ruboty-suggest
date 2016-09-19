@@ -1,4 +1,4 @@
-require 'spec_helper'
+require "spec_helper"
 
 describe Ruboty::Handlers::Suggest do
   let(:robot) do
@@ -19,7 +19,11 @@ describe Ruboty::Handlers::Suggest do
     end
 
     let(:replied) do
-      "suggest"
+      <<~STRING
+          Could not find command 'kong'.
+          Maybe you meant ping or whoami.
+          Run `@ruboty help` for more commands.
+      STRING
     end
 
     it "returns test" do
