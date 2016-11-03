@@ -16,7 +16,7 @@ module Ruboty
       end
 
       def maybe_you_meant
-        sort_by_similarity[0..1].map { |s| s[:command] }.join(" or ")
+        sort_by_similarity[0..1].map { |s| "`#{s[:command]}`" }.join(" or ")
       end
 
       def sort_by_similarity
